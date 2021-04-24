@@ -52,6 +52,7 @@
 <script>
   import axios from 'axios';
   const querystring = require('querystring');
+  const serverUrl = 'https://main-map-app-uleqtuu142bbxchv-gtw.qovery.io/'
   export default {
     data () {
       return {
@@ -78,7 +79,7 @@
     },
     mounted () {
     axios
-      .get('http://localhost:3000/permits?count='+this.count)
+      .get(serverUrl + 'permits?count='+this.count)
       .then(response => (this.data = response.data))
     },
     methods: {
@@ -92,7 +93,7 @@
                 queryString = querystring.stringify(queryString);
                 console.log(queryString);
                 axios
-                .get('http://localhost:3000/permits?'+ queryString)
+                .get(serverUrl + 'permits?'+ queryString)
                 .then(response => (this.data = response.data))
             }
       }
